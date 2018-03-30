@@ -9,9 +9,9 @@ script:
 - docker build -t $DOCKER_USERNAME/lab10 .
 - docker push $DOCKER_USERNAME/lab10
 after_success:
-- docker stop lab10
-- docker rm lab10
-- docker run -p 8088:80 -d --name htmltest $DOCKER_USERNAME/lab10:latest
+- docker stop $DOCKER_USERNAME/lab10
+- docker rm $DOCKER_USERNAME/lab10
+- docker run -p 8088:80 -d --name lab10 $DOCKER_USERNAME/lab10:latest
 service: docker
 env:
   global:
